@@ -66,7 +66,7 @@ ARGUMENTS = [
                           description='Run cerebri with UART shell.'),
     DeclareLaunchArgument('spawn_model', default_value='true',
                           choices=['true', 'false'],
-                          description='Spawn MR Buggy3 Model'),
+                          description='Spawn B3RB Model'),
     DeclareLaunchArgument('use_sim_time', default_value='true',
                           choices=['true', 'false'],
                           description='Use sim time'),
@@ -108,7 +108,7 @@ def generate_launch_description():
             [get_package_share_directory('cerebri_bringup'), 'launch', 'cerebri.launch.py'])]),
         condition=IfCondition(LaunchConfiguration('cerebri')),
         launch_arguments=[('gdb', LaunchConfiguration('cerebri_gdb')),
-                          ('vehicle', 'mrbuggy3'),
+                          ('vehicle', 'b3rb'),
                           ('uart_shell', LaunchConfiguration('uart_shell'))],
     )
 
@@ -144,11 +144,11 @@ def generate_launch_description():
             'use_sim_time': LaunchConfiguration('use_sim_time')
         }],
         arguments=[
-            '/world/default/model/mrbuggy3/link/lidar_link/sensor/lidar/scan' +
+            '/world/default/model/b3rb/link/lidar_link/sensor/lidar/scan' +
              '@sensor_msgs/msg/LaserScan[gz.msgs.LaserScan'
         ],
         remappings=[
-            ('/world/default/model/mrbuggy3/link/lidar_link/sensor/lidar/scan',
+            ('/world/default/model/b3rb/link/lidar_link/sensor/lidar/scan',
              '/scan')
         ])
 
@@ -161,10 +161,10 @@ def generate_launch_description():
             'use_sim_time': LaunchConfiguration('use_sim_time')
             }],
         arguments=[
-            '/model/mrbuggy3/odometry@nav_msgs/msg/Odometry[gz.msgs.Odometry'
+            '/model/b3rb/odometry@nav_msgs/msg/Odometry[gz.msgs.Odometry'
             ],
         remappings=[
-            ('/model/mrbuggy3/odometry', '/odom')
+            ('/model/b3rb/odometry', '/odom')
             ])
 
     odom_base_tf_bridge = Node(
@@ -174,12 +174,12 @@ def generate_launch_description():
         parameters=[{'use_sim_time': LaunchConfiguration('use_sim_time')}],
         condition=IfCondition(LaunchConfiguration('bridge')),
         arguments=[
-           ['/model/mrbuggy3/pose' +
+           ['/model/b3rb/pose' +
             '@tf2_msgs/msg/TFMessage' +
             '[gz.msgs.Pose_V']
         ],
         remappings=[
-           (['/model/mrbuggy3/pose'], '/tf')
+           (['/model/b3rb/pose'], '/tf')
         ])
 
     pose_bridge = Node(
@@ -189,12 +189,12 @@ def generate_launch_description():
         parameters=[{'use_sim_time': LaunchConfiguration('use_sim_time')}],
         condition=IfCondition(LaunchConfiguration('bridge')),
         arguments=[
-           ['/model/mrbuggy3/pose' +
+           ['/model/b3rb/pose' +
             '@tf2_msgs/msg/TFMessage' +
             '[gz.msgs.Pose_V']
         ],
         remappings=[
-           (['/model/mrbuggy3/pose'],
+           (['/model/b3rb/pose'],
             '/_internal/sim_ground_truth_pose')
         ])
 
@@ -202,7 +202,7 @@ def generate_launch_description():
     # Robot description
     robot_description = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([PathJoinSubstitution(
-        [get_package_share_directory('mrbuggy3_description'), 'launch', 'robot_description.launch.py'])]),
+        [get_package_share_directory('b3rb_description'), 'launch', 'robot_description.launch.py'])]),
         condition=IfCondition(LaunchConfiguration('description')),
         launch_arguments=[('use_sim_time', LaunchConfiguration('use_sim_time'))])
 
@@ -212,14 +212,14 @@ def generate_launch_description():
         parameters=[{'use_sim_time': LaunchConfiguration('use_sim_time')}],
         arguments=[
             '-world', 'default',
-            '-name', 'mrbuggy3',
+            '-name', 'b3rb',
             '-x', LaunchConfiguration('x'),
             '-y', LaunchConfiguration('y'),
             '-z', LaunchConfiguration('z'),
             '-Y', LaunchConfiguration('yaw'),
             '-file', PathJoinSubstitution([get_package_share_directory(
-                'mrbuggy3_gz_resource'),
-                'models/mrbuggy3/model.sdf'])
+                'b3rb_gz_resource'),
+                'models/b3rb/model.sdf'])
         ],
         output='screen',
         condition=IfCondition(LaunchConfiguration("spawn_model")))
@@ -227,14 +227,14 @@ def generate_launch_description():
     rviz2 = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([PathJoinSubstitution(
         [get_package_share_directory(
-        'mrbuggy3_rviz'), 'launch', 'view_robot.launch.py'])]),
+        'b3rb_rviz'), 'launch', 'view_robot.launch.py'])]),
         condition=IfCondition(LaunchConfiguration('rviz')),
         launch_arguments=[('use_sim_time', LaunchConfiguration('use_sim_time'))])
 
     nav2 = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([PathJoinSubstitution(
         [get_package_share_directory(
-        'mrbuggy3_nav2'), 'launch', 'nav2.launch.py'])]),
+        'b3rb_nav2'), 'launch', 'nav2.launch.py'])]),
         condition=IfCondition(LaunchConfiguration('nav2')),
         launch_arguments=[('use_sim_time', LaunchConfiguration('use_sim_time'))])
 
@@ -247,7 +247,7 @@ def generate_launch_description():
     slam = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([PathJoinSubstitution(
         [get_package_share_directory(
-        'mrbuggy3_nav2'), 'launch', 'slam.launch.py'])]),
+        'b3rb_nav2'), 'launch', 'slam.launch.py'])]),
         condition=LaunchConfigurationEquals('localization', 'slam'),
         launch_arguments=[('use_sim_time', LaunchConfiguration('use_sim_time')),
             ('sync', LaunchConfiguration('sync'))])
@@ -255,11 +255,11 @@ def generate_launch_description():
     localization = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([PathJoinSubstitution(
         [get_package_share_directory(
-        'mrbuggy3_nav2'), 'launch', 'localization.launch.py'])]),
+        'b3rb_nav2'), 'launch', 'localization.launch.py'])]),
         condition=LaunchConfigurationEquals('localization', 'localization'),
         launch_arguments=[('use_sim_time', LaunchConfiguration('use_sim_time')),
             ('map', PathJoinSubstitution([get_package_share_directory(
-                'mrbuggy3_nav2'), 'maps', LaunchConfiguration('map_yaml')]))])
+                'b3rb_nav2'), 'maps', LaunchConfiguration('map_yaml')]))])
 
     tf_to_odom = Node(
         condition=IfCondition(LaunchConfiguration('corti')),

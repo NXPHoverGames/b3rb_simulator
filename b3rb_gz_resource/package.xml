@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
-  <name>mrbuggy3_gz_resource</name>
+  <name>b3rb_gz_resource</name>
   <version>0.0.0</version>
-  <description>MR Buggy3 gz sim resources</description>
+  <description>B3RB gz sim resources</description>
   <maintainer email="info@cognipilot.com">cogni</maintainer>
   <license>Apache 2.0</license>
 

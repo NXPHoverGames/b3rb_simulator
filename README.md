@@ -1,2 +1,2 @@
-# mrbuggy3_simulator
-MR Buggy3 Simulation using Gazebo.
+# b3rb_simulator
+B3RB Simulation using Gazebo.
