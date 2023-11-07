@@ -18,7 +18,7 @@
         </inertia>
       </inertial>
       <visual name="NXP_LOGO">
-        <pose>-0.1 0.0 .1275 0 0 1.57</pose>
+        <pose>0.1 0.0 .1275 0 0 -1.5707</pose>
         <cast_shadows>false</cast_shadows>
         <geometry>
           <plane>
@@ -37,7 +37,7 @@
         </material>
       </visual>
       <visual name="CogniPilot_LOGO">
-        <pose>0.1 0.0 .1277 0 0 1.57</pose>
+        <pose>-0.1 0.0 .1277 0 0 -1.5707</pose>
         <cast_shadows>false</cast_shadows>
         <geometry>
           <plane>
@@ -56,7 +56,7 @@
         </material>
       </visual>
       <visual name="BaseVisual">
-        <pose>0.002 0 -0.005 0 0 1.5707</pose>
+        <pose>0.002 0 -0.005 0 0 -1.5707</pose>
         <geometry>
           <mesh>
             <uri>model://b3rb/meshes/b3rb.dae</uri>
