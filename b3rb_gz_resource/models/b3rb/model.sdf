@@ -17,8 +17,46 @@
           <izz>0.0252</izz>
         </inertia>
       </inertial>
+      <visual name="NXP_LOGO">
+        <pose>-0.1 0.0 .1275 0 0 1.57</pose>
+        <cast_shadows>false</cast_shadows>
+        <geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>.075 .075</size>
+          </plane>
+        </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0</diffuse>
+          <specular>1.0 1.0 1.0</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://b3rb/materials/textures/NXP.png</albedo_map>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
+      <visual name="CogniPilot_LOGO">
+        <pose>0.1 0.0 .1277 0 0 1.57</pose>
+        <cast_shadows>false</cast_shadows>
+        <geometry>
+          <plane>
+            <normal>0 0 1</normal>
+            <size>0.08652 0.04584</size>
+          </plane>
+        </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0</diffuse>
+          <specular>1.0 1.0 1.0</specular>
+          <pbr>
+            <metal>
+              <albedo_map>model://b3rb/materials/textures/CogniPilot.png</albedo_map>
+            </metal>
+          </pbr>
+        </material>
+      </visual>
       <visual name="BaseVisual">
-        <pose>-.008 0 -.0202 0 0 1.5707</pose>
+        <pose>0.002 0 -0.005 0 0 1.5707</pose>
         <geometry>
           <mesh>
             <uri>model://b3rb/meshes/b3rb.dae</uri>
@@ -262,7 +300,7 @@
     </link>
 
     <link name="lidar_link">
-      <pose>.05 0 .134 0 0 0</pose>
+      <pose>0 0 .195 0 0 0</pose>
       <inertial>
         <pose>0 0 0 0 0 0</pose>
         <mass>0.17</mass>
