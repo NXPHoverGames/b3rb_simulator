@@ -121,8 +121,12 @@ def generate_launch_description():
         parameters=[{
             'use_sim_time': LaunchConfiguration('use_sim_time')
             }],
-        remappings=[('/joy', '/cerebri/in/joy')]
     )
+
+    joy_throttle = Node(
+        package='topic_tools',
+        executable='throttle',
+        arguments=['messages', '/joy', '10', '/cerebri/in/joy'])
 
     clock_bridge = Node(
         package='ros_gz_bridge',
@@ -283,6 +287,7 @@ def generate_launch_description():
         gz_sim,
         cerebri,
         joy,
+        joy_throttle,
         odom_bridge,
         clock_bridge,
         lidar_bridge,
