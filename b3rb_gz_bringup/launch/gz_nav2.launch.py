@@ -127,7 +127,7 @@ def generate_launch_description():
         package='topic_tools',
         executable='throttle',
         arguments=['messages', '/joy', '10', '/cerebri/in/joy'],
-        parameters=[{'use_sim_time': use_sim_time}],
+        parameters=[{'use_sim_time': LaunchConfiguration('use_sim_time')}],
         )
 
     clock_bridge = Node(
