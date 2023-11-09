@@ -126,7 +126,9 @@ def generate_launch_description():
     joy_throttle = Node(
         package='topic_tools',
         executable='throttle',
-        arguments=['messages', '/joy', '10', '/cerebri/in/joy'])
+        arguments=['messages', '/joy', '10', '/cerebri/in/joy'],
+        parameters=[{'use_sim_time': use_sim_time}],
+        )
 
     clock_bridge = Node(
         package='ros_gz_bridge',
