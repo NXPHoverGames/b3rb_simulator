@@ -52,7 +52,7 @@ ARGUMENTS = [
     DeclareLaunchArgument('description', default_value='true',
                           choices=['true', 'false'],
                           description='Run description'),
-    DeclareLaunchArgument('world', default_value='depot',
+    DeclareLaunchArgument('world', default_value='basic_map',
                           description='GZ World'),
     DeclareLaunchArgument(
         'map_yaml',
@@ -92,6 +92,7 @@ def generate_launch_description():
         condition=IfCondition(LaunchConfiguration('synapse_gz')),
         launch_arguments=[('host', ['127.0.0.1']),
                           ('port', '4241'),
+                          ('vehicle', 'b3rb'),
                           ('use_sim_time', LaunchConfiguration('use_sim_time'))]
     )
 
@@ -281,6 +282,18 @@ def generate_launch_description():
             ('/odom', '/cerebri/in/odometry')
             ])
 
+    odom_to_tf = Node(
+        condition=IfCondition(LaunchConfiguration('corti')),
+        package='corti',
+        executable='odom_to_tf',
+        output='screen',
+        parameters=[{
+            'use_sim_time': LaunchConfiguration('use_sim_time'),
+            }],
+        remappings=[
+            ('/odom', '/cerebri/out/odometry')
+            ])
+
     # Define LaunchDescription variable
     return LaunchDescription(ARGUMENTS + [
         robot_description,
@@ -290,16 +303,17 @@ def generate_launch_description():
         cerebri,
         joy,
         joy_throttle,
-        odom_bridge,
+        #odom_bridge,
         clock_bridge,
         lidar_bridge,
-        odom_base_tf_bridge,
-        pose_bridge,
+        #odom_base_tf_bridge,
+        #pose_bridge,
         rviz2,
         spawn_robot,
         nav2,
         corti,
         slam,
         localization,
-        tf_to_odom
+        #tf_to_odom,
+        odom_to_tf,
     ])
