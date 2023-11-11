@@ -155,6 +155,25 @@ def generate_launch_description():
             ('/model/b3rb/battery/linear_battery/state', '/cerebri/in/battery_state')
             ])
 
+    actuator_bridge = Node(
+        package='ros_gz_bridge',
+        executable='parameter_bridge',
+        output='screen',
+        condition=IfCondition(LaunchConfiguration('bridge')),
+        parameters=[{
+            'use_sim_time': LaunchConfiguration('use_sim_time')
+            }],
+        arguments=[
+            '/actuators@actuator_msgs/msg/Actuators]gz.msgs.Actuators'
+            ])
+
+    actuator_relay = Node(
+        package='topic_tools',
+        executable='relay',
+        arguments=['/cerebri/out/actuators', '/actuators'],
+        parameters=[{'use_sim_time': LaunchConfiguration('use_sim_time')}],
+        )
+
     spawn_robot = Node(
         package='ros_gz_sim',
         executable='create',
@@ -184,5 +203,7 @@ def generate_launch_description():
         #mag_bridge,
         #nav_sat_fix_bridge,
         battery_state_bridge,
+        actuator_bridge,
+        actuator_relay,
         spawn_robot,
     ])
