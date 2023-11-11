@@ -85,10 +85,14 @@ def generate_launch_description():
             }],
         arguments=[
             '/world/default/model/b3rb/joint_state@sensor_msgs/msg/JointState[gz.msgs.Model'
-            ],
-        remappings=[
-            ('/world/default/model/b3rb/joint_state', '/cerebri/in/wheel_odometry')
             ])
+
+    wheel_odom_throttle = Node(
+        package='topic_tools',
+        executable='throttle',
+        arguments=['messages', '/world/default/model/b3rb/joint_state', '100', '/cerebri/in/wheel_odometry'],
+        parameters=[{'use_sim_time': LaunchConfiguration('use_sim_time')}],
+        )
     
     imu_bridge = Node(
         package='ros_gz_bridge',
@@ -175,9 +179,10 @@ def generate_launch_description():
         clock_bridge,
         lidar_bridge,
         wheel_odom_bridge,
-        imu_bridge,
-        mag_bridge,
-        nav_sat_fix_bridge,
+        wheel_odom_throttle,
+        #imu_bridge,
+        #mag_bridge,
+        #nav_sat_fix_bridge,
         battery_state_bridge,
         spawn_robot,
     ])
