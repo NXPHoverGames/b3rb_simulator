@@ -50,6 +50,7 @@ def generate_launch_description():
     clock_bridge = Node(
         package='ros_gz_bridge',
         executable='parameter_bridge',
+        name='bridge_gz_ros_clock',
         output='screen',
         condition=IfCondition(LaunchConfiguration('bridge')),
         parameters=[{
@@ -61,6 +62,7 @@ def generate_launch_description():
     lidar_bridge = Node(
         package='ros_gz_bridge',
         executable='parameter_bridge',
+        name='bridge_gz_ros_lidar',
         output='screen',
         condition=IfCondition(LaunchConfiguration('bridge')),
         parameters=[{
@@ -78,6 +80,7 @@ def generate_launch_description():
     wheel_odom_bridge = Node(
         package='ros_gz_bridge',
         executable='parameter_bridge',
+        name='bridge_gz_ros_wheel_odom',
         output='screen',
         condition=IfCondition(LaunchConfiguration('bridge')),
         parameters=[{
@@ -97,6 +100,7 @@ def generate_launch_description():
     imu_bridge = Node(
         package='ros_gz_bridge',
         executable='parameter_bridge',
+        name='bridge_gz_ros_imu',
         output='screen',
         condition=IfCondition(LaunchConfiguration('bridge')),
         parameters=[{
@@ -113,6 +117,7 @@ def generate_launch_description():
     mag_bridge = Node(
         package='ros_gz_bridge',
         executable='parameter_bridge',
+        name='bridge_gz_ros_mag',
         output='screen',
         condition=IfCondition(LaunchConfiguration('bridge')),
         parameters=[{
@@ -128,6 +133,7 @@ def generate_launch_description():
     nav_sat_fix_bridge = Node(
         package='ros_gz_bridge',
         executable='parameter_bridge',
+        name='bridge_gz_ros_nav_sat_fix',
         output='screen',
         condition=IfCondition(LaunchConfiguration('bridge')),
         parameters=[{
@@ -143,6 +149,7 @@ def generate_launch_description():
     battery_state_bridge = Node(
         package='ros_gz_bridge',
         executable='parameter_bridge',
+        name='bridge_gz_ros_battery_state',
         output='screen',
         condition=IfCondition(LaunchConfiguration('bridge')),
         parameters=[{
@@ -158,6 +165,7 @@ def generate_launch_description():
     actuator_bridge = Node(
         package='ros_gz_bridge',
         executable='parameter_bridge',
+        name='bridge_gz_ros_actuator',
         output='screen',
         condition=IfCondition(LaunchConfiguration('bridge')),
         parameters=[{

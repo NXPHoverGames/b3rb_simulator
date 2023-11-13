@@ -116,6 +116,7 @@ def generate_launch_description():
     joy = Node(
         package='joy',
         executable='joy_node',
+        name='joy_input',
         output='screen',
         arguments=['--ros-args', '--log-level', LaunchConfiguration('log_level')],
         condition=IfCondition(LaunchConfiguration('joy')),
@@ -127,6 +128,7 @@ def generate_launch_description():
     joy_throttle = Node(
         package='topic_tools',
         executable='throttle',
+        name='joy_throttle',
         arguments=['messages', '/joy', '10', '/cerebri/in/joy'],
         parameters=[{'use_sim_time': LaunchConfiguration('use_sim_time')}],
         )
@@ -134,6 +136,7 @@ def generate_launch_description():
     clock_bridge = Node(
         package='ros_gz_bridge',
         executable='parameter_bridge',
+        name='bridge_gz_ros_clock',
         output='screen',
         condition=IfCondition(LaunchConfiguration('bridge')),
         parameters=[{
@@ -145,6 +148,7 @@ def generate_launch_description():
     lidar_bridge = Node(
         package='ros_gz_bridge',
         executable='parameter_bridge',
+        name='bridge_gz_ros_lidar',
         output='screen',
         condition=IfCondition(LaunchConfiguration('bridge')),
         parameters=[{
@@ -162,6 +166,7 @@ def generate_launch_description():
     odom_bridge = Node(
         package='ros_gz_bridge',
         executable='parameter_bridge',
+        name='bridge_gz_ros_odom',
         output='screen',
         condition=IfCondition(LaunchConfiguration('bridge')),
         parameters=[{
@@ -177,6 +182,7 @@ def generate_launch_description():
     odom_base_tf_bridge = Node(
         package='ros_gz_bridge', 
         executable='parameter_bridge',
+        name='bridge_gz_ros_odom_base_tf',
         output='screen',
         parameters=[{'use_sim_time': LaunchConfiguration('use_sim_time')}],
         condition=IfCondition(LaunchConfiguration('bridge')),
@@ -192,6 +198,7 @@ def generate_launch_description():
     pose_bridge = Node(
         package='ros_gz_bridge', 
         executable='parameter_bridge',
+        name='bridge_gz_ros_pose',
         output='screen',
         parameters=[{'use_sim_time': LaunchConfiguration('use_sim_time')}],
         condition=IfCondition(LaunchConfiguration('bridge')),
