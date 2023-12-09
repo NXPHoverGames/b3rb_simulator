@@ -19,9 +19,6 @@ ARGUMENTS = [
         description='z position'),
     DeclareLaunchArgument('yaw', default_value=['0'],
         description='yaw position'),
-    DeclareLaunchArgument('rviz', default_value='true',
-                          choices=['true', 'false'],
-                          description='Start rviz.'),
     DeclareLaunchArgument('sync', default_value='false',
                           choices=['true', 'false'],
                           description='Run async or sync SLAM'),
@@ -46,9 +43,6 @@ ARGUMENTS = [
     DeclareLaunchArgument('synapse_gz', default_value='true',
                           choices=['true', 'false'],
                           description='Run synapse_gz'),
-    DeclareLaunchArgument('joy', default_value='true',
-                          choices=['true', 'false'],
-                          description='Run joy'),
     DeclareLaunchArgument('description', default_value='true',
                           choices=['true', 'false'],
                           description='Run description'),
@@ -112,26 +106,6 @@ def generate_launch_description():
                           ('vehicle', 'b3rb'),
                           ('uart_shell', LaunchConfiguration('uart_shell'))],
     )
-
-    joy = Node(
-        package='joy',
-        executable='joy_node',
-        name='joy_input',
-        output='screen',
-        arguments=['--ros-args', '--log-level', LaunchConfiguration('log_level')],
-        condition=IfCondition(LaunchConfiguration('joy')),
-        parameters=[{
-            'use_sim_time': LaunchConfiguration('use_sim_time')
-            }],
-    )
-
-    joy_throttle = Node(
-        package='topic_tools',
-        executable='throttle',
-        name='joy_throttle',
-        arguments=['messages', '/joy', '10', '/cerebri/in/joy'],
-        parameters=[{'use_sim_time': LaunchConfiguration('use_sim_time')}],
-        )
 
     clock_bridge = Node(
         package='ros_gz_bridge',
@@ -238,13 +212,6 @@ def generate_launch_description():
         output='screen',
         condition=IfCondition(LaunchConfiguration("spawn_model")))
 
-    rviz2 = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([PathJoinSubstitution(
-        [get_package_share_directory(
-        'b3rb_rviz'), 'launch', 'view_robot.launch.py'])]),
-        condition=IfCondition(LaunchConfiguration('rviz')),
-        launch_arguments=[('use_sim_time', LaunchConfiguration('use_sim_time'))])
-
     nav2 = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([PathJoinSubstitution(
         [get_package_share_directory(
@@ -308,14 +275,11 @@ def generate_launch_description():
         synapse_gz,
         gz_sim,
         cerebri,
-        joy,
-        joy_throttle,
         #odom_bridge,
         clock_bridge,
         lidar_bridge,
         #odom_base_tf_bridge,
         #pose_bridge,
-        rviz2,
         spawn_robot,
         nav2,
         corti,
