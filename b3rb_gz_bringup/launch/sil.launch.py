@@ -137,55 +137,16 @@ def generate_launch_description():
              '/scan')
         ])
 
-    odom_bridge = Node(
-        package='ros_gz_bridge',
-        executable='parameter_bridge',
-        name='bridge_gz_ros_odom',
+    camera_bridge = Node(
+        package='ros_gz_image',
+        executable='image_bridge',
+        name='bridge_gz_ros_camera',
         output='screen',
         condition=IfCondition(LaunchConfiguration('bridge')),
         parameters=[{
             'use_sim_time': LaunchConfiguration('use_sim_time')
-            }],
-        arguments=[
-            '/model/b3rb/odometry@nav_msgs/msg/Odometry[gz.msgs.Odometry'
-            ],
-        remappings=[
-            ('/model/b3rb/odometry', '/odom')
-            ])
-
-    odom_base_tf_bridge = Node(
-        package='ros_gz_bridge', 
-        executable='parameter_bridge',
-        name='bridge_gz_ros_odom_base_tf',
-        output='screen',
-        parameters=[{'use_sim_time': LaunchConfiguration('use_sim_time')}],
-        condition=IfCondition(LaunchConfiguration('bridge')),
-        arguments=[
-           ['/model/b3rb/pose' +
-            '@tf2_msgs/msg/TFMessage' +
-            '[gz.msgs.Pose_V']
-        ],
-        remappings=[
-           (['/model/b3rb/pose'], '/tf')
-        ])
-
-    pose_bridge = Node(
-        package='ros_gz_bridge', 
-        executable='parameter_bridge',
-        name='bridge_gz_ros_pose',
-        output='screen',
-        parameters=[{'use_sim_time': LaunchConfiguration('use_sim_time')}],
-        condition=IfCondition(LaunchConfiguration('bridge')),
-        arguments=[
-           ['/model/b3rb/pose' +
-            '@tf2_msgs/msg/TFMessage' +
-            '[gz.msgs.Pose_V']
-        ],
-        remappings=[
-           (['/model/b3rb/pose'],
-            '/_internal/sim_ground_truth_pose')
-        ])
-
+        }],
+        arguments=['/ov5645/image_raw'])
 
     # Robot description
     robot_description = IncludeLaunchDescription(
@@ -242,20 +203,6 @@ def generate_launch_description():
             ('map', PathJoinSubstitution([get_package_share_directory(
                 'b3rb_nav2'), 'maps', LaunchConfiguration('map_yaml')]))])
 
-    tf_to_odom = Node(
-        condition=IfCondition(LaunchConfiguration('corti')),
-        package='corti',
-        executable='tf_to_odom',
-        output='screen',
-        parameters=[{
-            'base_frame': 'map',
-            'target_frame': 'base_link',
-            'use_sim_time': LaunchConfiguration('use_sim_time'),
-            }],
-        remappings=[
-            ('/odom', '/cerebri/in/odometry')
-            ])
-
     odom_to_tf = Node(
         condition=IfCondition(LaunchConfiguration('corti')),
         package='corti',
@@ -275,16 +222,13 @@ def generate_launch_description():
         synapse_gz,
         gz_sim,
         cerebri,
-        #odom_bridge,
         clock_bridge,
+        camera_bridge,
         lidar_bridge,
-        #odom_base_tf_bridge,
-        #pose_bridge,
         spawn_robot,
         nav2,
         corti,
         slam,
         localization,
-        #tf_to_odom,
         odom_to_tf,
     ])

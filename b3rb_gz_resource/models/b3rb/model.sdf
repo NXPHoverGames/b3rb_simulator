@@ -67,7 +67,7 @@
         <pose>0 0 .06 0 0 0</pose>
         <geometry>
           <box>
-            <size>.3 .09 .12</size>
+            <size>.34 .09 .14</size>
           </box>
         </geometry>
       </collision>
@@ -298,7 +298,73 @@
         </surface>
       </collision>
     </link>
-
+    <link name="camera_link">
+      <pose>.173 0 .15 0 0 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.01</mass>
+        <inertia>
+          <ixx>0.00000130666</ixx> <!-- (.01/12)*(.028^2+.028^2) -->
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00000130666</iyy> <!-- (.01/12)*(.028^2+.028^2) -->
+          <iyz>0</iyz>
+          <izz>0.00000130666</izz> <!-- (.01/12)*(.028^2+.028^2) -->
+        </inertia>
+      </inertial>
+      <visual name="camera_housing">
+        <pose>.013 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>.008 .028 .028</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0</diffuse>
+          <specular>1.0 1.0 1.0</specular>
+        </material>
+      </visual>
+      <visual name="camera_housing_mount">
+        <pose>.008 0 0 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>.008 .014 .01</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0</diffuse>
+          <specular>1.0 1.0 1.0</specular>
+        </material>
+      </visual>
+      <visual name="camera_lens">
+        <pose>.016 0 .006 0 1.57079632679 0</pose>
+        <geometry>
+          <cylinder>
+            <length>0.003</length>
+            <radius>0.004</radius>
+          </cylinder>
+        </geometry>
+      </visual>
+      <sensor name="ov5645" type="camera">
+        <pose>.016 0 .006 0 0 0</pose>
+        <camera>
+          <horizontal_fov>1.204</horizontal_fov>
+          <image>
+            <width>640</width>
+            <height>480</height>
+          </image>
+          <clip>
+            <near>0.1</near>
+            <far>100</far>
+          </clip>
+          <optical_frame_id>camera_link_optical</optical_frame_id>
+        </camera>
+        <always_on>1</always_on>
+        <update_rate>30</update_rate>
+        <visualize>true</visualize>
+        <topic>/ov5645/image_raw</topic>
+      </sensor>
+    </link>
     <link name="lidar_link">
       <pose>0 0 .195 0 0 0</pose>
       <inertial>
@@ -343,12 +409,14 @@
         <update_rate>10</update_rate>
       </sensor>
     </link>
-
+    <joint name="camera_joint" type="fixed">
+      <parent>base_link</parent>
+      <child>camera_link</child>
+    </joint>
     <joint name="lidar_joint" type="fixed">
       <parent>base_link</parent>
       <child>lidar_link</child>
     </joint>
-
     <joint name="FrontRightwheelSteeringJoint" type="revolute">
       <parent>base_link</parent>
       <child>FrontRightwheelSteering</child>
@@ -459,7 +527,6 @@
       <joint_name>FrontRightwheelJoint</joint_name>
       <joint_name>RearRightwheelJoint</joint_name>
       <joint_name>RearLeftwheelJoint</joint_name>
-      <!-- <sub_topic>drive</sub_topic> -->
       <use_actuator_msg>true</use_actuator_msg>
       <actuator_number>0</actuator_number>
     </plugin>
@@ -476,26 +543,6 @@
       <wheel_base>.2255</wheel_base>
       <wheel_separation>.2</wheel_separation>
     </plugin>
-    <!-- <plugin
-      filename="gz-sim-ackermann-steering-system"
-      name="gz::sim::systems::AckermannSteering">
-      <left_joint>FrontLeftwheelJoint</left_joint>
-      <left_joint>RearLeftwheelJoint</left_joint>
-      <right_joint>RearRightwheelJoint</right_joint>
-      <right_joint>FrontRightwheelJoint</right_joint>
-      <left_steering_joint>FrontLeftwheelSteeringJoint</left_steering_joint>
-      <right_steering_joint>FrontRightwheelSteeringJoint</right_steering_joint>
-      <kingpin_width>0.199</kingpin_width>
-      <steering_limit>0.4</steering_limit>
-      <wheel_base>.2255</wheel_base>
-      <wheel_separation>.2</wheel_separation>
-      <wheel_radius>0.0365</wheel_radius>
-      <min_velocity>-10.0</min_velocity>
-      <max_velocity>10.0</max_velocity>
-      <min_acceleration>-10</min_acceleration>
-      <max_acceleration>10</max_acceleration>
-      <topic>/cmd_vel</topic>
-    </plugin> -->
     <plugin
       filename="gz-sim-odometry-publisher-system"
       name="gz::sim::systems::OdometryPublisher">
