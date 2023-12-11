@@ -137,6 +137,19 @@ def generate_launch_description():
              '/scan')
         ])
 
+    camera_info_bridge = Node(
+        package='ros_gz_bridge',
+        executable='parameter_bridge',
+        name='bridge_gz_ros_camera_info',
+        output='screen',
+        condition=IfCondition(LaunchConfiguration('bridge')),
+        parameters=[{
+            'use_sim_time': LaunchConfiguration('use_sim_time')
+        }],
+        arguments=[
+            '/ov5645/camera_info@sensor_msgs/msg/CameraInfo[gz.msgs.CameraInfo'
+        ])
+
     camera_bridge = Node(
         package='ros_gz_image',
         executable='image_bridge',
@@ -224,6 +237,7 @@ def generate_launch_description():
         cerebri,
         clock_bridge,
         camera_bridge,
+        camera_info_bridge,
         lidar_bridge,
         spawn_robot,
         nav2,

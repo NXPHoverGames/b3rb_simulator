@@ -348,15 +348,24 @@
       <sensor name="ov5645" type="camera">
         <pose>.016 0 .006 0 0 0</pose>
         <camera>
-          <horizontal_fov>1.204</horizontal_fov>
           <image>
             <width>640</width>
             <height>480</height>
+            <format>B8G8R8</format>
           </image>
           <clip>
             <near>0.1</near>
             <far>100</far>
           </clip>
+          <lens>
+            <intrinsics>
+              <fx>381.5</fx>
+              <fy>381.5</fy>
+              <cx>320</cx>
+              <cy>240</cy>
+              <s>0</s>
+            </intrinsics>
+          </lens>
           <optical_frame_id>camera_link_optical</optical_frame_id>
         </camera>
         <always_on>1</always_on>
