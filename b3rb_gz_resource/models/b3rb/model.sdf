@@ -388,13 +388,38 @@
           <izz>0.0002130808333</izz> <!-- (.17/12)*(.071^2+.1^2) -->
         </inertia>
       </inertial>
-      <visual name="visual">
+<!--       <visual name="visual">
         <pose>0 0 -.028 0 0 0</pose>
         <geometry>
           <mesh>
             <uri>model://b3rb/meshes/STL27L.dae</uri>
           </mesh>
         </geometry>
+      </visual> -->
+      <visual name="visual_box">
+        <pose>0 0 -.017 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.039 0.039 0.022</size>
+          </box>
+        </geometry>
+        <material>
+          <diffuse>0.01 0.01 0.01</diffuse>
+          <specular>0.01 0.01 0.01</specular>
+        </material>
+      </visual>
+      <visual name="visual_cylinder">
+        <pose>0 0 0 0 0 0</pose>
+        <geometry>
+          <cylinder>
+            <radius>0.018</radius>
+            <length>0.014</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <diffuse>0.01 0.01 0.01</diffuse>
+          <specular>0.01 0.01 0.01</specular>
+        </material>
       </visual>
       <sensor name="lidar" type="gpu_lidar">
         <lidar>
