@@ -143,7 +143,7 @@ def generate_launch_description():
             'use_sim_time': LaunchConfiguration('use_sim_time')
         }],
         arguments=[
-            '/ov5645/camera_info@sensor_msgs/msg/CameraInfo[gz.msgs.CameraInfo'
+            '/camera/camera_info@sensor_msgs/msg/CameraInfo[gz.msgs.CameraInfo'
         ])
 
     camera_bridge = Node(
@@ -155,7 +155,7 @@ def generate_launch_description():
         parameters=[{
             'use_sim_time': LaunchConfiguration('use_sim_time')
         }],
-        arguments=['/ov5645/image_raw'])
+        arguments=['/camera/image_raw'])
 
     # Robot description
     robot_description = IncludeLaunchDescription(
