@@ -415,15 +415,15 @@
             </horizontal>
           </scan>
           <range>
-            <min>0.15</min>
-            <max>10</max>
+            <min>0.03</min>
+            <max>5</max>
             <resolution>0.01</resolution>
           </range>
         </lidar>
         <gz_frame_id>lidar_link</gz_frame_id>
         <alwaysOn>1</alwaysOn>
         <visualize>false</visualize>
-        <update_rate>10</update_rate>
+        <update_rate>2</update_rate>
       </sensor>
     </link>
     <joint name="camera_joint" type="fixed">
