@@ -108,6 +108,497 @@
         </navsat>
       </sensor>
     </link>
+    <link name="led_0">
+      <light name="led_rear_outside" type="spot">
+        <cast_shadows>false</cast_shadows>
+        <visualize>0</visualize>
+        <diffuse>1.0 1.0 1.0</diffuse>
+        <specular>1.0 1.0 1.0</specular>
+        <direction>0 0 -1</direction>
+        <intensity>1.0</intensity>
+        <spot>
+          <inner_angle>2.1</inner_angle>
+          <outer_angle>2.1</outer_angle>
+        </spot>
+      </light>
+      <pose>-.168 0.05 .115 0 1.57 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.0000001</mass>
+        <inertia>
+          <ixx>0.000000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.000000000001</izz>
+        </inertia>
+      </inertial>
+      <visual name="led_rear_outside_visual">
+        <pose>0 0 0 0 0 0</pose>
+        <cast_shadows>false</cast_shadows>
+        <geometry>
+          <sphere>
+            <radius>0.004</radius>
+          </sphere>
+        </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0 1.0</diffuse>
+          <specular>1.0 1.0 1.0 1.0</specular>
+          <shininess>1.0</shininess>
+        </material>
+      </visual>
+    </link>
+    <link name="led_1">
+      <light name="led_rear_center" type="spot">
+        <cast_shadows>false</cast_shadows>
+        <visualize>0</visualize>
+        <diffuse>1.0 1.0 1.0</diffuse>
+        <specular>1.0 1.0 1.0</specular>
+        <direction>0 0 -1</direction>
+        <intensity>1.0</intensity>
+        <spot>
+          <inner_angle>2.1</inner_angle>
+          <outer_angle>2.1</outer_angle>
+        </spot>
+      </light>
+      <pose>-.168 0.04 .115 0 1.57 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.0000001</mass>
+        <inertia>
+          <ixx>0.000000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.000000000001</izz>
+        </inertia>
+      </inertial>
+      <visual name="led_rear_center_visual">
+        <pose>0 0 0 0 0 0</pose>
+        <cast_shadows>false</cast_shadows>
+        <geometry>
+          <sphere>
+            <radius>0.004</radius>
+          </sphere>
+        </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0 1.0</diffuse>
+          <specular>1.0 1.0 1.0 1.0</specular>
+          <shininess>1.0</shininess>
+        </material>
+      </visual>
+    </link>
+    <link name="led_2">
+      <light name="led_rear_inside" type="spot">
+        <cast_shadows>false</cast_shadows>
+        <visualize>0</visualize>
+        <diffuse>1.0 1.0 1.0</diffuse>
+        <specular>1.0 1.0 1.0</specular>
+        <direction>0 0 -1</direction>
+        <intensity>1.0</intensity>
+        <spot>
+          <inner_angle>2.1</inner_angle>
+          <outer_angle>2.1</outer_angle>
+        </spot>
+      </light>
+      <pose>-.168 0.03 .115 0 1.57 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.0000001</mass>
+        <inertia>
+          <ixx>0.000000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.000000000001</izz>
+        </inertia>
+      </inertial>
+      <visual name="led_rear_inside_visual">
+        <pose>0 0 0 0 0 0</pose>
+        <cast_shadows>false</cast_shadows>
+        <geometry>
+          <sphere>
+            <radius>0.004</radius>
+          </sphere>
+        </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0 1.0</diffuse>
+          <specular>1.0 1.0 1.0 1.0</specular>
+          <shininess>1.0</shininess>
+        </material>
+      </visual>
+    </link>
+    <link name="led_3">
+      <light name="led_rear_inside" type="spot">
+        <cast_shadows>false</cast_shadows>
+        <visualize>0</visualize>
+        <diffuse>1.0 1.0 1.0</diffuse>
+        <specular>1.0 1.0 1.0</specular>
+        <direction>0 0 -1</direction>
+        <intensity>1.0</intensity>
+        <spot>
+          <inner_angle>2.1</inner_angle>
+          <outer_angle>2.1</outer_angle>
+        </spot>
+      </light>
+      <pose>-.168 -0.03 .115 0 1.57 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.0000001</mass>
+        <inertia>
+          <ixx>0.000000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.000000000001</izz>
+        </inertia>
+      </inertial>
+      <visual name="led_rear_inside_visual">
+        <pose>0 0 0 0 0 0</pose>
+        <cast_shadows>false</cast_shadows>
+        <geometry>
+          <sphere>
+            <radius>0.004</radius>
+          </sphere>
+        </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0 1.0</diffuse>
+          <specular>1.0 1.0 1.0 1.0</specular>
+          <shininess>1.0</shininess>
+        </material>
+      </visual>
+    </link>
+    <link name="led_4">
+      <light name="led_rear_center" type="spot">
+        <cast_shadows>false</cast_shadows>
+        <visualize>0</visualize>
+        <diffuse>1.0 1.0 1.0</diffuse>
+        <specular>1.0 1.0 1.0</specular>
+        <direction>0 0 -1</direction>
+        <intensity>1.0</intensity>
+        <spot>
+          <inner_angle>2.1</inner_angle>
+          <outer_angle>2.1</outer_angle>
+        </spot>
+      </light>
+      <pose>-.168 -0.04 .115 0 1.57 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.0000001</mass>
+        <inertia>
+          <ixx>0.000000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.000000000001</izz>
+        </inertia>
+      </inertial>
+      <visual name="led_rear_center_visual">
+        <pose>0 0 0 0 0 0</pose>
+        <cast_shadows>false</cast_shadows>
+        <geometry>
+          <sphere>
+            <radius>0.004</radius>
+          </sphere>
+        </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0 1.0</diffuse>
+          <specular>1.0 1.0 1.0 1.0</specular>
+          <shininess>1.0</shininess>
+        </material>
+      </visual>
+    </link>
+    <link name="led_5">
+      <light name="led_rear_outside" type="spot">
+        <cast_shadows>false</cast_shadows>
+        <visualize>0</visualize>
+        <diffuse>1.0 1.0 1.0</diffuse>
+        <specular>1.0 1.0 1.0</specular>
+        <direction>0 0 -1</direction>
+        <intensity>1.0</intensity>
+        <spot>
+          <inner_angle>2.1</inner_angle>
+          <outer_angle>2.1</outer_angle>
+        </spot>
+      </light>
+      <pose>-.168 -0.05 .115 0 1.57 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.0000001</mass>
+        <inertia>
+          <ixx>0.000000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.000000000001</izz>
+        </inertia>
+      </inertial>
+      <visual name="led_rear_outside_visual">
+        <pose>0 0 0 0 0 0</pose>
+        <cast_shadows>false</cast_shadows>
+        <geometry>
+          <sphere>
+            <radius>0.004</radius>
+          </sphere>
+        </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0 1.0</diffuse>
+          <specular>1.0 1.0 1.0 1.0</specular>
+          <shininess>1.0</shininess>
+        </material>
+      </visual>
+    </link>
+
+    <link name="led_6">
+      <light name="led_front" type="spot">
+        <cast_shadows>false</cast_shadows>
+        <visualize>0</visualize>
+        <diffuse>1.0 1.0 1.0</diffuse>
+        <specular>1.0 1.0 1.0</specular>
+        <direction>0 0 -1</direction>
+        <intensity>1.0</intensity>
+        <spot>
+          <inner_angle>2.1</inner_angle>
+          <outer_angle>2.1</outer_angle>
+        </spot>
+      </light>
+      <pose>.17 -.05 .115 0 -1.57 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.0000001</mass>
+        <inertia>
+          <ixx>0.000000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.000000000001</izz>
+        </inertia>
+      </inertial>
+      <visual name="led_front_visual">
+        <pose>0 0 0 0 0 0</pose>
+        <cast_shadows>false</cast_shadows>
+        <geometry>
+          <sphere>
+            <radius>0.004</radius>
+          </sphere>
+        </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0 1.0</diffuse>
+          <specular>1.0 1.0 1.0 1.0</specular>
+          <shininess>1.0</shininess>
+        </material>
+      </visual>
+    </link>
+    <link name="led_7">
+      <light name="led_front" type="spot">
+        <cast_shadows>false</cast_shadows>
+        <visualize>0</visualize>
+        <diffuse>1.0 1.0 1.0</diffuse>
+        <specular>1.0 1.0 1.0</specular>
+        <direction>0 0 -1</direction>
+        <intensity>1.0</intensity>
+        <spot>
+          <inner_angle>2.1</inner_angle>
+          <outer_angle>2.1</outer_angle>
+        </spot>
+      </light>
+      <pose>.17 -.04 .115 0 -1.57 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.0000001</mass>
+        <inertia>
+          <ixx>0.000000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.000000000001</izz>
+        </inertia>
+      </inertial>
+      <visual name="led_front_visual">
+        <pose>0 0 0 0 0 0</pose>
+        <cast_shadows>false</cast_shadows>
+        <geometry>
+          <sphere>
+            <radius>0.004</radius>
+          </sphere>
+        </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0 1.0</diffuse>
+          <specular>1.0 1.0 1.0 1.0</specular>
+          <shininess>1.0</shininess>
+        </material>
+      </visual>
+    </link>
+    <link name="led_8">
+      <light name="led_front" type="spot">
+        <cast_shadows>false</cast_shadows>
+        <visualize>0</visualize>
+        <diffuse>1.0 1.0 1.0</diffuse>
+        <specular>1.0 1.0 1.0</specular>
+        <direction>0 0 -1</direction>
+        <intensity>1.0</intensity>
+        <spot>
+          <inner_angle>2.1</inner_angle>
+          <outer_angle>2.1</outer_angle>
+        </spot>
+      </light>
+      <pose>.17 -0.03 .115 0 -1.57 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.0000001</mass>
+        <inertia>
+          <ixx>0.000000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.000000000001</izz>
+        </inertia>
+      </inertial>
+      <visual name="led_front_visual">
+        <cast_shadows>false</cast_shadows>
+        <geometry>
+          <sphere>
+            <radius>0.004</radius>
+          </sphere>
+        </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0 1.0</diffuse>
+          <specular>1.0 1.0 1.0 1.0</specular>
+          <shininess>1.0</shininess>
+        </material>
+      </visual>
+    </link>
+    <link name="led_9">
+      <light name="led_front" type="spot">
+        <cast_shadows>false</cast_shadows>
+        <visualize>0</visualize>
+        <diffuse>1.0 1.0 1.0</diffuse>
+        <specular>1.0 1.0 1.0</specular>
+        <direction>0 0 -1</direction>
+        <intensity>1.0</intensity>
+        <spot>
+          <inner_angle>2.1</inner_angle>
+          <outer_angle>2.1</outer_angle>
+        </spot>
+      </light>
+      <pose>.17 .03 .115 0 -1.57 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.0000001</mass>
+        <inertia>
+          <ixx>0.000000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.000000000001</izz>
+        </inertia>
+      </inertial>
+      <visual name="led_front_visual">
+        <cast_shadows>false</cast_shadows>
+        <geometry>
+          <sphere>
+            <radius>0.004</radius>
+          </sphere>
+        </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0 1.0</diffuse>
+          <specular>1.0 1.0 1.0 1.0</specular>
+          <shininess>1.0</shininess>
+        </material>
+      </visual>
+    </link>
+    <link name="led_10">
+      <light name="led_front" type="spot">
+        <cast_shadows>false</cast_shadows>
+        <visualize>0</visualize>
+        <diffuse>1.0 1.0 1.0</diffuse>
+        <specular>1.0 1.0 1.0</specular>
+        <direction>0 0 -1</direction>
+        <intensity>1.0</intensity>
+        <spot>
+          <inner_angle>2.1</inner_angle>
+          <outer_angle>2.1</outer_angle>
+        </spot>
+      </light>
+      <pose>.17 0.04 .115 0 -1.57 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.0000001</mass>
+        <inertia>
+          <ixx>0.000000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.000000000001</izz>
+        </inertia>
+      </inertial>
+      <visual name="led_front_visual">
+        <pose>0 0 0 0 0 0</pose>
+        <cast_shadows>false</cast_shadows>
+        <geometry>
+          <sphere>
+            <radius>0.004</radius>
+          </sphere>
+        </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0 1.0</diffuse>
+          <specular>1.0 1.0 1.0 1.0</specular>
+          <shininess>1.0</shininess>
+        </material>
+      </visual>
+    </link>
+    <link name="led_11">
+      <light name="led_front" type="spot">
+        <cast_shadows>false</cast_shadows>
+        <visualize>0</visualize>
+        <diffuse>1.0 1.0 1.0</diffuse>
+        <specular>1.0 1.0 1.0</specular>
+        <direction>0 0 -1</direction>
+        <intensity>1.0</intensity>
+        <spot>
+          <inner_angle>2.1</inner_angle>
+          <outer_angle>2.1</outer_angle>
+        </spot>
+      </light>
+      <pose>.17 0.05 .115 0 -1.57 0</pose>
+      <inertial>
+        <pose>0 0 0 0 0 0</pose>
+        <mass>0.0000001</mass>
+        <inertia>
+          <ixx>0.000000000001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.000000000001</iyy>
+          <iyz>0</iyz>
+          <izz>0.000000000001</izz>
+        </inertia>
+      </inertial>
+      <visual name="led_front_visual">
+        <pose>0 0 0 0 0 0</pose>
+        <cast_shadows>false</cast_shadows>
+        <geometry>
+          <sphere>
+            <radius>0.004</radius>
+          </sphere>
+        </geometry>
+        <material>
+          <diffuse>1.0 1.0 1.0 1.0</diffuse>
+          <specular>1.0 1.0 1.0 1.0</specular>
+          <shininess>1.0</shininess>
+        </material>
+      </visual>
+    </link>
     <link name="FrontRightwheel">
       <pose relative_to="FrontRightwheelJoint">0 0 0 0 0 0</pose>
       <inertial>
@@ -448,7 +939,6 @@
         </limit>
       </axis>
     </joint>
-
     <joint name="FrontRightwheelJoint" type="revolute">
       <parent>FrontRightwheelSteering</parent>
       <child>FrontRightwheel</child>
@@ -533,9 +1023,69 @@
       <pose>0.0 0.0 -0.04 0 0 0</pose>
     </joint>
     <joint name="SensorsJoint" type="fixed">
-        <parent>base_link</parent>
-        <child>sensors</child>
-        <pose>0.0 0.0 0.0 0 0 0</pose>
+      <parent>base_link</parent>
+      <child>sensors</child>
+      <pose>0.0 0.0 0.0 0 0 0</pose>
+    </joint>
+    <joint name="LedJoint0" type="fixed">
+      <parent>base_link</parent>
+      <child>led_0</child>
+      <pose>0.0 0.0 0.0 0 0 0</pose>
+    </joint>
+    <joint name="LedJoint1" type="fixed">
+      <parent>base_link</parent>
+      <child>led_1</child>
+      <pose>0.0 0.0 0.0 0 0 0</pose>
+    </joint>
+    <joint name="LedJoint2" type="fixed">
+      <parent>base_link</parent>
+      <child>led_2</child>
+      <pose>0.0 0.0 0.0 0 0 0</pose>
+    </joint>
+    <joint name="LedJoint3" type="fixed">
+      <parent>base_link</parent>
+      <child>led_3</child>
+      <pose>0.0 0.0 0.0 0 0 0</pose>
+    </joint>
+    <joint name="LedJoint4" type="fixed">
+      <parent>base_link</parent>
+      <child>led_4</child>
+      <pose>0.0 0.0 0.0 0 0 0</pose>
+    </joint>
+    <joint name="LedJoint5" type="fixed">
+      <parent>base_link</parent>
+      <child>led_5</child>
+      <pose>0.0 0.0 0.0 0 0 0</pose>
+    </joint>
+    <joint name="LedJoint6" type="fixed">
+      <parent>base_link</parent>
+      <child>led_6</child>
+      <pose>0.0 0.0 0.0 0 0 0</pose>
+    </joint>
+    <joint name="LedJoint7" type="fixed">
+      <parent>base_link</parent>
+      <child>led_7</child>
+      <pose>0.0 0.0 0.0 0 0 0</pose>
+    </joint>
+    <joint name="LedJoint8" type="fixed">
+      <parent>base_link</parent>
+      <child>led_8</child>
+      <pose>0.0 0.0 0.0 0 0 0</pose>
+    </joint>
+    <joint name="LedJoint9" type="fixed">
+      <parent>base_link</parent>
+      <child>led_9</child>
+      <pose>0.0 0.0 0.0 0 0 0</pose>
+    </joint>
+    <joint name="LedJoint10" type="fixed">
+      <parent>base_link</parent>
+      <child>led_10</child>
+      <pose>0.0 0.0 0.0 0 0 0</pose>
+    </joint>
+    <joint name="LedJoint11" type="fixed">
+      <parent>base_link</parent>
+      <child>led_11</child>
+      <pose>0.0 0.0 0.0 0 0 0</pose>
     </joint>
     <plugin
         filename="gz-sim-joint-controller-system"
