@@ -11,11 +11,11 @@ from launch_ros.actions import Node
 
 
 ARGUMENTS = [
-    DeclareLaunchArgument('x', default_value=['0'],
+    DeclareLaunchArgument('x', default_value=['-5'],
         description='x position'),
-    DeclareLaunchArgument('y', default_value=['0'],
+    DeclareLaunchArgument('y', default_value=['-2'],
         description='y position'),
-    DeclareLaunchArgument('z', default_value=['0'],
+    DeclareLaunchArgument('z', default_value=['0.1'],
         description='z position'),
     DeclareLaunchArgument('yaw', default_value=['0'],
         description='yaw position'),

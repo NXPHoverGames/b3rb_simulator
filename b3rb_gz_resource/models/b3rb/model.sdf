@@ -299,7 +299,7 @@
       </collision>
     </link>
     <link name="camera_link">
-      <pose>.173 0 .15 0 0 0</pose>
+      <pose>-0.05 0 0.45 0 0.5 0</pose> <!-- .173 0 .15 0 0 0 -0.05 0 0.45 0 0.5 0-->
       <inertial>
         <pose>0 0 0 0 0 0</pose>
         <mass>0.01</mass>
