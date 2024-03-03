@@ -15,7 +15,7 @@ ARGUMENTS = [
         description='x position'),
     DeclareLaunchArgument('y', default_value=['-2'],
         description='y position'),
-    DeclareLaunchArgument('z', default_value=['0.1'],
+    DeclareLaunchArgument('z', default_value=['0'],
         description='z position'),
     DeclareLaunchArgument('yaw', default_value=['0'],
         description='yaw position'),
@@ -48,6 +48,9 @@ ARGUMENTS = [
                           description='Run description'),
     DeclareLaunchArgument('world', default_value='basic_map',
                           description='GZ World'),
+    DeclareLaunchArgument('track_vision', default_value='true',
+                          choices=['true', 'false'],
+                          description='Track vision node'),
     DeclareLaunchArgument(
         'map_yaml',
         default_value=[LaunchConfiguration('world'), '.yaml'],
@@ -101,6 +104,11 @@ def generate_launch_description():
         condition=IfCondition(LaunchConfiguration('cerebri')),
         launch_arguments=[('gdb', LaunchConfiguration('cerebri_gdb')),
                           ('vehicle', 'b3rb')],
+    )
+    nxp_cup_vision = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource([PathJoinSubstitution(
+            [get_package_share_directory('nxp_cup_vision'), 'launch', 'nxp_cup_vision_launch.py'])]),
+        condition=IfCondition(LaunchConfiguration('track_vision')),
     )
 
     clock_bridge = Node(
@@ -241,4 +249,5 @@ def generate_launch_description():
         slam,
         localization,
         odom_to_tf,
+        nxp_cup_vision,
     ])
