@@ -51,6 +51,9 @@ ARGUMENTS = [
     DeclareLaunchArgument('track_vision', default_value='true',
                           choices=['true', 'false'],
                           description='Track vision node'),
+    DeclareLaunchArgument('debug_track_vision', default_value='true',
+                          choices=['true', 'false'],
+                          description='Debug Track vision node'),
     DeclareLaunchArgument(
         'map_yaml',
         default_value=[LaunchConfiguration('world'), '.yaml'],
@@ -105,10 +108,14 @@ def generate_launch_description():
         launch_arguments=[('gdb', LaunchConfiguration('cerebri_gdb')),
                           ('vehicle', 'b3rb')],
     )
+    
     nxp_cup_vision = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource([PathJoinSubstitution(
-            [get_package_share_directory('nxp_cup_vision'), 'launch', 'nxp_cup_vision_launch.py'])]),
+        PythonLaunchDescriptionSource([
+            PathJoinSubstitution(
+                [get_package_share_directory('nxp_cup_vision'), 'launch', 'nxp_cup_vision_launch.py'])
+            ]),
         condition=IfCondition(LaunchConfiguration('track_vision')),
+        launch_arguments={'debug': LaunchConfiguration('debug_track_vision')}.items(),
     )
 
     clock_bridge = Node(
