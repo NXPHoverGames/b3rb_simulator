@@ -346,7 +346,8 @@
         </geometry>
       </visual>
       <sensor name="ov5645" type="camera">
-        <pose>.016 0 .006 0 0 0</pose>
+        <pose>.016 0 .006 0 0.15 0</pose>
+        <!-- <pose>.016 0 .006 0 0 0</pose> -->
         <camera>
           <image>
             <width>320</width>
