@@ -226,19 +226,19 @@ def generate_launch_description():
 
     # Define LaunchDescription variable
     return LaunchDescription(ARGUMENTS + [
-        robot_description,
-        synapse_ros,
-        synapse_gz,
+        # robot_description,
+        # synapse_ros,
+        # synapse_gz,
         gz_sim,
-        cerebri,
+        # cerebri,
         clock_bridge,
-        camera_bridge,
-        camera_info_bridge,
+        # camera_bridge,
+        # camera_info_bridge,
         lidar_bridge,
         spawn_robot,
         nav2,
         corti,
         slam,
         localization,
-        odom_to_tf,
+        # odom_to_tf,
     ])
